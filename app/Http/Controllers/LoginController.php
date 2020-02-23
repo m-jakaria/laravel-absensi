@@ -23,9 +23,7 @@ class LoginController extends Controller
             ],400);
         }
 
-
-       
-
+// comment
              //validasi email
              $email_validate = filter_var($email, FILTER_VALIDATE_EMAIL);
 
@@ -54,7 +52,7 @@ class LoginController extends Controller
     
         //hash password
 
-
+ 
 
         $password_hash = Hash::check($password,$exis_user->password);
         
