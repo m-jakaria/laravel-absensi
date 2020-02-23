@@ -33,6 +33,8 @@ class UserController extends Controller
                 'message' => 'Form tidak boleh kosong'
             ], 400);
         }
+
+        // validasi
         //validasi email
         $email_validate = filter_var($email, FILTER_VALIDATE_EMAIL);
 
