@@ -19,7 +19,8 @@ use Illuminate\Http\Request;
 
 Route::get('/user','UserController@getUser');
 Route::post('/user','UserController@createUser');
-Route::delete('/user/{id}','UserController@deleteUser');
+Route::put('/user/update/{id}','UserController@editUser');
+Route::delete('/user/delete/{id}','UserController@deleteUser');
 
 Route::get('/role','RoleController@getRole');
 Route::post('/role','RoleController@createRole');

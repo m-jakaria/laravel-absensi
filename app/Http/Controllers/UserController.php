@@ -26,8 +26,9 @@ class UserController extends Controller
         $email = $request->input('email');
         $name = $request->input('name');
         $role = $request->input('role');
+        $password = $request->input('password');
 
-        if (!$email || !$name|| !$role ){
+        if (!$email || !$name|| !$role || !$password){
             return response()->json([
                 'status' => false,
                 'message' => 'Form tidak boleh kosong'
@@ -72,14 +73,14 @@ class UserController extends Controller
             ],404);
         }
 
-        $password = Hash::make('123456');
+        $passwordHas = Hash::make($password);
         $status = 1;
 
 
         $user = User::create([
             'name' => $name,
             'email' => $email,
-            'password' => $password,
+            'password' => $passwordHas,
             'status' => $status
         ]);
 
@@ -98,7 +99,7 @@ class UserController extends Controller
             'user_id' => $user_id,
             'role_id' => $role_id
         ]);
-       
+
 
 
         return response()->json([
