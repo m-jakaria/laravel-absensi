@@ -13,7 +13,7 @@ class LoginController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
 
-     
+
 
         if(!$email || !$password){
 
@@ -31,12 +31,12 @@ class LoginController extends Controller
                  return response()->json([
                      'status' => false,
                      'message' => 'email tidak valid'
-     
+
                  ],400);
              }
 
         $exis_user = User::where('email',$email)->where('status',1)->first();
-   
+
 
         if (!$exis_user){
             return response()->json([
@@ -45,17 +45,10 @@ class LoginController extends Controller
             ], 400);
         }
 
-
- 
-       
-
-    
         //hash password
 
- 
-
         $password_hash = Hash::check($password,$exis_user->password);
-        
+
         if (!$password_hash){
             return response()->json([
                 'status' => false,
